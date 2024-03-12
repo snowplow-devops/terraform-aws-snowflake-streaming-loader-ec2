@@ -1,0 +1,31 @@
+readonly CONFIG_DIR=/opt/snowplow/config
+
+sudo mkdir -p $${CONFIG_DIR}
+sudo base64 --decode << EOF > $${CONFIG_DIR}/loader.hocon
+${config_b64}
+EOF
+
+# Launch the loader
+sudo docker run \
+  -d \
+  --name loader \
+  --restart always \
+  --network host \
+  --memory=${container_memory} \
+%{ if cloudwatch_logs_enabled ~}
+  --log-driver awslogs \
+  --log-opt awslogs-group=${cloudwatch_log_group_name} \
+  --log-opt awslogs-stream=$(get_instance_id) \
+%{ else ~}
+  --log-opt max-size=10m \
+  --log-opt max-file=5 \
+%{ endif ~}
+  --mount type=bind,source=$${CONFIG_DIR},target=/snowplow/config \
+  --env JDK_JAVA_OPTIONS='${java_opts}' \
+  --env ACCEPT_LIMITED_USE_LICENSE=${accept_limited_use_license} \
+  --env INSTANCE_ID=$(get_instance_id) \
+  --env SNOWFLAKE_PRIVATE_KEY='${sf_private_key}' \
+  snowplow/snowflake-loader-kinesis:${version} \
+  --config /snowplow/config/loader.hocon
+
+${telemetry_script}
