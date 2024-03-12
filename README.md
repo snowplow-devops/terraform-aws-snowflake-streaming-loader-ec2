@@ -31,8 +31,5 @@ Licensed under the [Snowplow Limited Use License Agreement][license]. _(If you a
 [registry]: https://registry.terraform.io/modules/snowplow-devops/snowflake-streaming-loader-ec2/aws/latest
 [registry-image]: https://img.shields.io/static/v1?label=Terraform&message=Registry&color=7B42BC&logo=terraform
 
-[source]: https://github.com/snowplow/snowplow
-[source-image]: https://img.shields.io/static/v1?label=Snowplow&message=PROJECT%20NAME&color=0E9BA4&logo=GitHub
-
 [source]: https://github.com/snowplow-incubator/snowflake-loader
 [source-image]: https://img.shields.io/static/v1?label=Snowplow&message=Snowflake%20Loader&color=0E9BA4&logo=GitHub
