@@ -15,6 +15,9 @@
     "good": {
       "url": "${sf_account_url}"
       "user": "${sf_username}"
+%{ if sf_role != "" ~}
+      "role": "${sf_role}"
+%{endif}
       "privateKey": $${SNOWFLAKE_PRIVATE_KEY}
       "database": "${sf_db_name}"
       "schema": "${sf_schema}"
