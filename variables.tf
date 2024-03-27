@@ -197,6 +197,12 @@ variable "snowflake_loader_user" {
   type        = string
 }
 
+variable "snowflake_loader_role" {
+  description = "Snowflake role used by loader to perform loading"
+  default     = ""
+  type        = string
+}
+
 variable "snowflake_private_key" {
   description = "Private Key for snowflake_loader_user used by loader to perform loading"
   type        = string

@@ -247,6 +247,7 @@ locals {
 
     sf_account_url = var.snowflake_account_url
     sf_username    = var.snowflake_loader_user
+    sf_role        = var.snowflake_loader_role
     sf_db_name     = var.snowflake_database
     sf_schema      = var.snowflake_schema
 
