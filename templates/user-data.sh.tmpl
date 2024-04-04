@@ -5,6 +5,10 @@ sudo base64 --decode << EOF > $${CONFIG_DIR}/loader.hocon
 ${config_b64}
 EOF
 
+%{ if is_private_ecr_registry }
+aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin ${private_ecr_registry}
+%{ endif ~}
+
 # Launch the loader
 sudo docker run \
   -d \
@@ -25,7 +29,7 @@ sudo docker run \
   --env ACCEPT_LIMITED_USE_LICENSE=${accept_limited_use_license} \
   --env INSTANCE_ID=$(get_instance_id) \
   --env SNOWFLAKE_PRIVATE_KEY='${sf_private_key}' \
-  snowplow/snowflake-loader-kinesis:${version} \
+  ${private_ecr_registry}snowplow/snowflake-loader-kinesis:${version} \
   --config /snowplow/config/loader.hocon
 
 ${telemetry_script}
