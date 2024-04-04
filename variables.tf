@@ -33,7 +33,7 @@ variable "subnet_ids" {
 variable "instance_type" {
   description = "The instance type to use"
   type        = string
-  default     = "t3a.micro"
+  default     = "t3a.small"
 }
 
 variable "associate_public_ip_address" {
@@ -229,6 +229,14 @@ variable "telemetry_enabled" {
 
 variable "user_provided_id" {
   description = "An optional unique identifier to identify the telemetry events emitted by this stack"
+  type        = string
+  default     = ""
+}
+
+# --- Image Repositories
+
+variable "private_ecr_registry" {
+  description = "The URL of an ECR registry that the sub-account has access to (e.g. '000000000000.dkr.ecr.cn-north-1.amazonaws.com.cn/')"
   type        = string
   default     = ""
 }
