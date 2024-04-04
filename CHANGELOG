@@ -1,3 +1,7 @@
+Version 0.1.2 (2024-04-04)
+--------------------------
+Add support for AWS China regions (#4)
+
 Version 0.1.1 (2024-04-02)
 --------------------------
 Add role configuration (#2)
