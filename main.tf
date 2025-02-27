@@ -1,6 +1,6 @@
 locals {
   module_name    = "snowflake-streaming-loader-ec2"
-  module_version = "0.1.2"
+  module_version = "0.1.3"
 
   app_name    = "snowflake-loader"
   app_version = var.app_version
