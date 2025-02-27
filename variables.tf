@@ -53,6 +53,12 @@ variable "ssh_ip_allowlist" {
   default     = ["0.0.0.0/0"]
 }
 
+variable "health_ip_allowlist" {
+  description = "The list of CIDR ranges to allow traffic from to health endpoint"
+  type        = list(any)
+  default     = ["0.0.0.0/0"]
+}
+
 variable "iam_permissions_boundary" {
   description = "The permissions boundary ARN to set on IAM roles created"
   default     = ""
