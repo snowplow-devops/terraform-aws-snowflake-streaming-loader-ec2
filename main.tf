@@ -4,6 +4,7 @@ locals {
 
   app_name    = "snowflake-loader"
   app_version = var.app_version
+  health_port = 8000
 
   local_tags = {
     Name           = var.name
@@ -217,6 +218,15 @@ resource "aws_security_group_rule" "ingress_tcp_22" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = var.ssh_ip_allowlist
+  security_group_id = aws_security_group.sg.id
+}
+
+resource "aws_security_group_rule" "ingress_tcp_health" {
+  type              = "ingress"
+  from_port         = local.health_port
+  to_port           = local.health_port
+  protocol          = "tcp"
+  cidr_blocks       = var.health_ip_allowlist
   security_group_id = aws_security_group.sg.id
 }
 
