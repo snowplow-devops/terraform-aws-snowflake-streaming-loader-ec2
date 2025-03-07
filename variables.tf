@@ -17,7 +17,7 @@ variable "name" {
 variable "app_version" {
   description = "App version to use. This variable facilitates dev flow, the modules may not work with anything other than the default value."
   type        = string
-  default     = "0.2.1"
+  default     = "0.4.0"
 }
 
 variable "vpc_id" {
