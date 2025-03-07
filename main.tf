@@ -281,6 +281,10 @@ locals {
     sf_db_name     = var.snowflake_database
     sf_schema      = var.snowflake_schema
 
+    webhook_endpoint  = var.webhook_endpoint
+    webhook_tags      = jsonencode(local.tags)
+    webhook_heartbeat = var.webhook_heartbeat
+
     telemetry_disable          = !var.telemetry_enabled
     telemetry_collector_uri    = join("", module.telemetry.*.collector_uri)
     telemetry_collector_port   = 443
