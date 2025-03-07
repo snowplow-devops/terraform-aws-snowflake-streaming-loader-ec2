@@ -246,3 +246,17 @@ variable "private_ecr_registry" {
   type        = string
   default     = ""
 }
+
+# --- Webhook monitoring
+
+variable "webhook_endpoint" {
+  description = "HTTP endpoint to report monitoring alerts and heartbeats"
+  type        = string
+  default     = ""
+}
+
+variable "webhook_heartbeat" {
+  description = "How often to send the heartbeat event"
+  type        = string
+  default     = "5 minutes"
+}

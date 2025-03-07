@@ -27,6 +27,16 @@
     }
   }
 
+  "monitoring": {
+%{ if webhook_endpoint != "" ~}
+    "webhook": {
+      "endpoint": "${webhook_endpoint}",
+      "tags": ${webhook_tags}
+      "heartbeat": "${webhook_heartbeat}"
+    }
+%{ endif ~}
+  }
+
   "telemetry": {
     "disable": ${telemetry_disable}
     "interval": 15 minutes
