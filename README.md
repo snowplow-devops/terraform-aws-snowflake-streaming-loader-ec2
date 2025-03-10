@@ -150,8 +150,8 @@ module "snowflake_streaming_loader" {
 | <a name="input_tags"></a> [tags](#input\_tags) | The tags to append to this resource | `map(string)` | `{}` | no |
 | <a name="input_telemetry_enabled"></a> [telemetry\_enabled](#input\_telemetry\_enabled) | Whether or not to send telemetry information back to Snowplow Analytics Ltd | `bool` | `true` | no |
 | <a name="input_user_provided_id"></a> [user\_provided\_id](#input\_user\_provided\_id) | An optional unique identifier to identify the telemetry events emitted by this stack | `string` | `""` | no |
-| <a name="input_webhook_endpoint"></a> [webhook\_endpoint](#input\_webhook\_endpoint) | An optional HTTP endpoint to report monitoring alerts and heartbeats | `string` | `""` | no |
-| <a name="input_webhook_heartbeat"></a> [webhook\_heartbeat](#input\_webhook\_heartbeat) | An optional string to specify how often to send the heartbeat event to the webhook when healthy | `string` | `"5 minutes"` | no |
+| <a name="input_webhook_endpoint"></a> [webhook\_endpoint](#input\_webhook\_endpoint) | HTTP endpoint to report monitoring alerts and heartbeats | `string` | `""` | no |
+| <a name="input_webhook_heartbeat"></a> [webhook\_heartbeat](#input\_webhook\_heartbeat) | How often to send the heartbeat event | `string` | `"5 minutes"` | no |
 
 ## Outputs
 
