@@ -61,6 +61,13 @@ module "snowflake_streaming_loader" {
 
   webhook_endpoint  = ""
   webhook_heartbeat = "5 minutes"
+
+  skip_schemas = [
+    "iglu:com.acme/skipped1/jsonschema/1-0-0",
+    "iglu:com.acme/skipped2/jsonschema/1-0-*",
+    "iglu:com.acme/skipped3/jsonschema/1-*-*",
+    "iglu:com.acme/skipped4/jsonschema/*-*-*"
+  ]
 }
 ```
 
@@ -152,6 +159,7 @@ module "snowflake_streaming_loader" {
 | <a name="input_user_provided_id"></a> [user\_provided\_id](#input\_user\_provided\_id) | An optional unique identifier to identify the telemetry events emitted by this stack | `string` | `""` | no |
 | <a name="input_webhook_endpoint"></a> [webhook\_endpoint](#input\_webhook\_endpoint) | HTTP endpoint to report monitoring alerts and heartbeats | `string` | `""` | no |
 | <a name="input_webhook_heartbeat"></a> [webhook\_heartbeat](#input\_webhook\_heartbeat) | How often to send the heartbeat event | `string` | `"5 minutes"` | no |
+| <a name="input_skip_schemas"></a> [skip\_schemas](#input\_skip\_schemas) | A list of schemas that won't be loaded to Snowflake | `list(string)` | `[]` | no |
 
 ## Outputs
 

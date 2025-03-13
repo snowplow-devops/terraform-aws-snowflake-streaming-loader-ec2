@@ -260,3 +260,11 @@ variable "webhook_heartbeat" {
   type        = string
   default     = "5 minutes"
 }
+
+# --- Other configuration options
+
+variable "skip_schemas" {
+  description = "A list of schemas that won't be loaded to Snowflake"
+  type        = list(string)
+  default     = []
+}
