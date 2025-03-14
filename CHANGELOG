@@ -1,3 +1,7 @@
+Version 0.1.5 (2025-03-14)
+--------------------------
+Enable option to set skipSchemas (#13)
+
 Version 0.1.4 (2025-03-10)
 --------------------------
 Enable webhook monitoring (#10)
